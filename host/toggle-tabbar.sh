@@ -17,7 +17,8 @@ on findButton(el, depth)
 		if elRole is "AXWebArea" then return
 		if elRole is "AXButton" then
 			try
-				if (description of el) is in {"Collapse tabs", "Expand tabs"} then
+				set d to (description of el) as text
+				if d starts with "Collapse tabs" or d starts with "Expand tabs" then
 					click el
 					set found to true
 					return
